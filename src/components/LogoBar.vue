@@ -1,6 +1,6 @@
 <template>
     <div class="logo_container"> 
-      <button class="lang_btn" @click="togglelang">En</button>
+      <button class="lang_btn" @click="togglelang">{{ this.lang==='en'?'عربي':'En' }}</button>
         <div class="logo"></div>
         <button class="mode_btn" @click="toggleMode"></button>
     </div>
@@ -15,14 +15,19 @@ export default {
         isEng:false
     }
    },
+   computed:{
+    lang(){
+      return this.$i18n.locale
+    }
+   },
     methods:{
     toggleMode() {
       this.isDark = !this.isDark
       this.$emit('toggle-dark-mode', this.isDark)
     },
     togglelang() {
-      this.isEng = !this.isLang
-      this.$emit('toggle-English-lang', this.isLang)
+      this.$i18n.locale=this.lang==='en'?'ar':'en';
+      this.lang==='en'? document.body.classList.add('english'):document.body.classList.remove('english');
     }
   }
 }
@@ -92,4 +97,18 @@ body.dark .lang_btn{
 body.dark .logo {
      background-image: url(../assets/dark/logo_dark.png);
 }
+
+@media(width < 1000px){
+  .mode_btn,.lang_btn{
+    width:40px ;
+    height:40px;
+    font-size: 0.8em;
+  }
+  
+  .logo_container{
+    padding-bottom: 5%;
+  }
+}
+
+
 </style>

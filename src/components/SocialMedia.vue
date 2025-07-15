@@ -26,11 +26,19 @@ export default {
    
 }
 
-@media (width  < 1200px){
+@media (width  < 1300px){
     .social_bar{
         position: fixed;
         left: 0%;
+        top:20%
            
+    }
+}
+
+@media (width  < 600px){
+    .social_bar{
+        width: 38px;
+        top:16%  
     }
 }
 

@@ -2,7 +2,7 @@
 <div class="contact_page">
   <transition name="slide-down" appear>
   <div class="contact_above">
-    <h3>نص مثال لعنوان يوضع في المكان</h3>
+    <h3>{{ $t('contact.main_title') }}</h3>
     <div class="contact_social_bar">
             <div class="Social-container">
               <div class="social_11"><a src=""></a></div>
@@ -17,11 +17,11 @@
   <div class="contact_below">
     <transition name="slide-right" appear>
     <div class="contact_right">
-      <h3>هذا النص مثال لعنوان معين</h3>
+      <h3>{{ $t('contact.right_main_title') }}</h3>
       <div class="contact_content">
         <div v-for="n in 3" :key="n" :index="n - 1" class="contact_item">
-           <h5>هذا النص مثال لعنوان معين</h5>
-           <p>هذا النص مثال لعنوان معين</p>
+           <h5>{{ $t('contact.right_title') }}</h5>
+           <p>{{ $t('contact.right_paragraph') }}</p>
         </div>
       </div>
     </div>
@@ -33,28 +33,28 @@
       <div class="form_name">
 
        <div class="form_group">
-        <label for="lastName">الاسم الأخير</label>
-        <input type="text" id="lastName" value="هذا النص مثال!">
+        <label for="lastName">{{ $t('contact.last_name') }}</label>
+        <input type="text" id="lastName" value="">
        </div>
 
        <div class="form_group">
-        <label for="firstName">الاسم الأول</label>
+        <label for="firstName">{{ $t('contact.first_name') }}</label>
         <input type="text" id="firstName">
        </div>
 
       </div>
 
     <div class="form_group full-width">
-      <label for="email">البريد الإلكتروني</label>
+      <label for="email">{{ $t('contact.email') }}</label>
       <input type="email" id="email">
     </div>
 
     <div class="form_group full-width">
-      <label for="message">اكتب لي !</label>
+      <label for="message">{{ $t('contact.write') }}</label>
       <textarea id="message" rows="5"></textarea>
     </div>
 
-    <button type="submit" class="submit-btn">إرسال <span>←</span></button>
+    <button type="submit" class="submit-btn">{{ $t('contact.submit') }}<span class="arrow">←</span></button>
      </form>
     </div>
   </transition>
@@ -274,6 +274,44 @@ body.dark .submit-btn {
   color: var(--primary-dark-mode);
 }
 
+
+body.english .contact_below, body.english.dark .contact_below{
+  flex-direction: row;
+  padding-left: 18%;
+  padding-right: 0%;
+}
+
+body.english .contact_below>*, body.english.dark .contact_below>*{
+  text-align: left;
+}
+
+body.english .form_name, body.english.dark .form_name{
+  flex-direction: row-reverse;
+}
+
+body.english input , body.english.dark input,
+body.english textarea , body.english.dark textarea
+{
+    text-align: left;
+}
+
+body.english .form_group label, body.english.dark .form_group label
+{
+  direction: ltr;
+}
+
+body.english .submit-btn, body.english.dark .submit-btn{
+  direction: ltr;
+  align-self: flex-end;
+}
+
+
+body.english .arrow, body.english.dark .arrow{
+ display: inline-block;
+ transform: rotate(180deg); 
+}
+
+
 @media(max-width: 1350px){
   .contact_below{
       flex-direction: column;
@@ -289,9 +327,31 @@ body.dark .submit-btn {
     text-align: center;
     padding: 5% 0%;
    }
+
+body.english .contact_below, body.english.dark .contact_below{
+  flex-direction: column;
+  padding: 2% 7% ;
+  
 }
 
+  body.english .contact_below>*, body.english.dark .contact_below >*{
+  text-align: center;
+  }
+
+body.english .form_group label, body.english.dark .form_group label
+{
+  text-align: left;
+}
+}
 @media (max-width: 800px) {
+
+.contact_above h3 {
+ font-size: 1.2em;
+}
+
+.contact_right h3{
+   font-size: 1.1em;
+}
 
 .form_group {
  min-width: 100%;
@@ -301,6 +361,12 @@ body.dark .submit-btn {
  align-self: stretch;
  text-align: center;
  margin-top: 1rem;
+}
+
+body.english .contact_below, body.english.dark .contact_below{
+ 
+  padding: 2% 14% ;
+  
 }
 }
 

@@ -5,15 +5,15 @@
     <div class="achieve_arrows">
     </div>
     <div class="achieve_content">
-       <h6>هذا النص مثال لعنوان يوضع في المكان</h6>
-       <h3>هذا النص مثال لعنوان يوضع في المكان يوضح طول</h3>
-       <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+       <h6>{{ $t('achievement.small_title') }}</h6>
+       <h3>{{ $t('achievement.title') }}</h3>
+       <p>{{$t('achievement.paragraph')  }}</p>
     </div>
   </div>
 </transition>
 <transition name="slide-left" appear>
   <div class="achieve_left">
-    <img alt="Achievements Image" src="../assets/Achieve_img.png">
+    <img alt="Achievements Image" src="../assets/Achieve_img.png" loading="eager">
   </div>
 </transition>
 </div>
@@ -56,8 +56,7 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   text-align: right;
-  padding: 12% 8% ;
-  ;
+  padding: 12% 7% ;
 }
 
 .achieve_content h6{
@@ -110,9 +109,23 @@ body.dark .achieve_arrows{
     padding-top:35%;
 }
 
+body.english .achieve_page , body.english .dark .achieve_page{
+  flex-direction: row;
+}
+
+body.english .achieve_right, body.english .dark .achieve_right{
+  text-align: left;
+  flex-direction: row;
+  padding-left: 20%;
+  padding-right: 2%;
+  align-items: center;
+}
+
+
 @media ((max-width: 1200px)) {
        .achieve_page{
         flex-direction: column;
+        justify-content: center;
         max-height: none;
         padding: 0 12%;
        }
@@ -126,6 +139,18 @@ body.dark .achieve_arrows{
        .achieve_content h3{
             font-size: 1.6em;
        }
+
+       body.english .achieve_page , body.english .dark .achieve_page{
+       flex-direction: column;
+       justify-content: center;
+      }
+
+      body.english .achieve_right, body.english .dark .achieve_right{
+        text-align: center;
+        padding: 5% 10% ;
+      }
+
+
 }
   
 /* Right side comes from the right */

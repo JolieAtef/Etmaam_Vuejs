@@ -3,12 +3,12 @@
   <div class="vision_container">
     <transition name="slide-right" appear>
     <div class="vision_right">
-        <img src="../assets/vision_img.png" alt="">
+        <img src="../assets/vision_img.png" alt="الاستاذ ابو فيصل" loading="eager">
     </div>
    </transition>
    <transition name="slide-left" appear>
     <div class="vision_left">
-        <p>هذا النص مثال لعنوان يوضع في المكان يوضح طول فقرة لعنوان معين يشرح محتوى يمتد لعدة اسطر بهذا الشكل و يكون مكون من عدة جمل وهكذا يكون لدينا مثال لفقرة ما</p>
+        <p>{{ $t('vision.left_paragraph') }}</p>
     </div>
     </transition>
   </div>
@@ -45,8 +45,8 @@ export default {
 }
 
 .vision_left{
-    font-size: 2.05em;
-    padding: 5%;
+    font-size: 2.02em;
+    padding: 6%;
     text-align: center;
     margin-left: 13%;
 }
@@ -55,7 +55,15 @@ body.dark .vision_left{
     color: var(--white);
 }
 
+body.english .vision_left, body.dark.english .vision_left{
+  font-size: 1.4em;
+}
+
+
+
 @media (width  < 1200px){
+
+    
     .vision_container{
         flex-direction: column;
     }
@@ -68,7 +76,20 @@ body.dark .vision_left{
         margin: auto;
         align-items: center;
     }
+    body.english .my_vision_page, body.dark.english .my_vision_page{
+     min-height: 80vh;
+    }
+    body.english .vision_left, body.dark.english .vision_left{
+     font-size: 1.2em;
+    }
 
+}
+
+
+@media (width  < 700px){
+  body.english .my_vision_page, body.dark.english .my_vision_page{
+     min-height: 110vh;
+    }
 }
 
 

@@ -23,7 +23,7 @@ export default {
   },
   watch: {
     isDark(val) {
-      document.body.className = val ? 'dark' : ''
+      val? document.body.classList.add('dark'):document.body.classList.remove('dark');
     }
   },
 }

@@ -1,8 +1,8 @@
 <template>
     <div class="career_item">
           <h2>1998</h2>
-          <h4>هذا النص مثال لعنوان يوضع في المكان </h4>
-          <p>هذا النص مثال لعنوان يوضع في المكان يوضح شرح عن الخبرات  ويكون مكون من عدة اسطر من سطرين الى ثلاثة على الاكثر وذلك يوضح طول الفقرة</p>
+          <h4>{{ $t('career_item.title') }}</h4>
+          <p>{{ $t('career_item.paragraph') }}</p>
     </div>
 </template>
 
@@ -45,6 +45,11 @@ body.dark .career_item h4{
 
 body.dark.career_item p{
     color: var(--gray_1);
+}
+
+body.english .career_item>*, body.dark.english .career_item>*{
+     text-align: left;
+     font-size: 0.8em;
 }
 
 @media (width  < 1200px){

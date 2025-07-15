@@ -1,7 +1,17 @@
 <template>
 <transition name="slide-down" appear>
-<div class="hero">
-  <img src="../assets/certificates_img.png" alt="الاستاذ ابو فيصل">
+<div class="cer_hero">
+  <img src="../assets/certificate_img.png" alt="الاستاذ ابو فيصل" loading="eager">
+  <div class="cer_img_content">
+    <div class="cer_icon">
+      <img src="../assets/certificate_icon.png" alt="certificate icon" loading="eager">
+    </div>
+    <h4>{{ $t('certificate.content_title') }}</h4>
+    <p>{{ $t('certificate.content_paragraph') }}</p>
+    <div class="cer_arrows">
+      <img src="../assets/up_down_cer_arrows.png" alt="arrows icon" loading="eager">
+    </div>
+  </div>
 </div>
 </transition>
 <NavBar :page="4"/>
@@ -17,12 +27,120 @@ export default {
 </script>
 
 <style>
-.hero{
-    display: flex;
-    justify-content: center;
+
+.cer_hero{
+    margin: auto;
     position: relative;
     max-height: 75vh;
+    width: 100%;
+    overflow: hidden;
+}
 
+
+.cer_hero img {
+  width: 100%;
+  height: auto;
+  max-height: 570px;
+  object-fit: contain;
+}
+
+.cer_img_content {
+  position: absolute;
+  top: 35%;
+  margin: auto;
+  text-align: center;
+  width: 100%; 
+  padding: 0 10%;
+}
+
+.cer_icon img{
+  width: 50px; 
+  height: auto;
+  margin-bottom: 15px;
+}
+.cer_arrows img {
+  width: 25px; 
+  height: auto;
+}
+
+.cer_img_content h4 {
+
+  font-size: clamp(1rem, 2vw, 1.2em);
+  padding-bottom: 0.6rem;
+  color:var(--white);
+}
+
+.cer_img_content p {
+  font-size:  clamp(0.7rem, 1vw, 0.7em);
+  margin-bottom: 2rem;
+  color:var(--white);
+
+}
+
+body.english .cer_img_content ,body.english .dark .cer_img_content {
+  padding: 0 25%;
+}
+
+body.english .cer_img_content p ,body.english .dark .cer_img_content p {
+  margin-bottom: 1rem;
+}
+
+
+@media (width  < 1300px){
+  
+  .cer_img_content {
+    padding: 8%;
+  }
+
+  .cer_img_content h4{
+    padding-bottom: 0.2rem;
+  }
+
+  .cer_img_content p{
+    margin-bottom: 5px;
+  }
+
+  .cer_icon img{
+    width: 40px; 
+  }
+  .cer_arrows img {
+  width: 20px; 
+  }
+
+ body.english .cer_img_content ,body.english .dark .cer_img_content {
+  top:38%;
+  padding: 0 12%;
+ }
+ body.english .cer_img_content h4 ,body.english .dark .cer_img_content h4 {
+  padding-bottom:0rem;
+ }
+ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
+  margin-bottom: 0rem;
+
+ }
+
+}
+
+@media (width  < 700px){
+  .cer_img_content {
+    top: 42%;
+    padding: 0 2%;
+  }
+  .cer_img_content h4{
+    font-size: clamp(0.6rem, 1vw, 0.8em);
+  }
+  .cer_img_content p{
+    font-size:  clamp(0.4rem, 0.6vw, 0.4em);
+    margin-bottom: 0px;
+  }
+
+  .cer_icon img{
+  width: 25px; 
+  margin-bottom: 0px;
+}
+.cer_arrows img {
+  width: 10px; 
+} 
 }
 
 /* Transition classes for slide-down effect */

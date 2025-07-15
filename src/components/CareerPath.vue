@@ -2,8 +2,8 @@
 <div class="Career_path_page">
   <transition name="slide-right" appear>
        <div class="career_title">
-         <p>هذا النص مثال لعنوان يوضع في المكان</p>
-         <h3>هذا النص مثال لعنوان يوضع في المكان</h3>
+         <p>{{ $t('career_path.career_small_title') }}</p>
+         <h3>{{ $t('career_path.career_title') }}</h3>
        </div>
     </transition>
 
@@ -66,10 +66,14 @@ body.dark .career_title h3{
    color: var(--white);
 }
 
+body.english .career_title, body.dark.english .career_title{
+     text-align: left;
+}
+
 @media (width  < 1250px){
 
   .Career_path_page{
-    min-height: 90vh;
+    min-height: 45vh;
    }
   .career_title{
     text-align: center;
@@ -78,19 +82,26 @@ body.dark .career_title h3{
    .career_items{ 
     gap: 5%;
     grid-template-columns: repeat(2,1fr);
-    margin-bottom: 20%;
+    margin-bottom: 5%;
    }
+   body.english .Career_path_page, body.dark.english .Career_path_page{
+    min-height: 120vh;
+  }
 }
 
-@media (width  < 700px){
+@media (width  < 600px){
    .career_items{ 
     grid-template-columns: repeat(1,1fr);
     flex:1;
 }
 
 .Career_path_page{
-    min-height: 120vh;
+    min-height: 155vh;
    }
+
+   body.english .Career_path_page, body.dark.english .Career_path_page{
+    min-height: 210vh;
+  }
 }
 
 /* Right side comes from the right */

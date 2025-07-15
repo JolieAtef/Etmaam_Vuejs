@@ -19,86 +19,47 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+
+const { locale } = useI18n()
 
 const props = defineProps({
   page: Number
 })
 
+function getLabel(page) {
+  return locale.value === 'en' ? page.labelEn : page.labelAr
+}
+
 // List of pages
 const pages = [
-  { label: 'الرئيسية', route: '/' },
-  { label: 'نبذة عني', route: '/AboutMe' },
-  { label: 'رؤيتي', route: '/MyVision' },
-  { label: 'حياتى المهنية', route: '/CareerPath' },
-  { label: 'الشهادات', route: '/Certificates' },
-  { label: 'الانجازات', route: '/Achievements' },
-  { label: 'تواصل معي', route: '/ContactMe' }
+{ labelAr: 'الرئيسية', labelEn: 'Home', route: '/' },
+  { labelAr: 'نبذة عني', labelEn: 'About Me', route: '/AboutMe' },
+  { labelAr: 'رؤيتي', labelEn: 'My Vision', route: '/MyVision' },
+  { labelAr: 'حياتى المهنية', labelEn: 'Career Path', route: '/CareerPath' },
+  { labelAr: 'الشهادات', labelEn: 'Certificates', route: '/Certificates' },
+  { labelAr: 'الانجازات', labelEn: 'Achievements', route: '/Achievements' },
+  { labelAr: 'تواصل معي', labelEn: 'Contact Me', route: '/ContactMe' }
 ]
 
-// Access previous, current, and next pages
-const page1 = computed(() => pages[props.page - 1] ||{ label: '', route: '/'})
-const page2 = computed(() => pages[props.page] || { label: '', route: '/' })
-const page3 = computed(() => pages[props.page + 1] || { label: '', route: '/'} )
+
+const page1 = computed(() => {
+  const page = pages[props.page - 1]
+  return page ? { ...page, label: getLabel(page) } : { label: '', route: '/' }
+})
+const page2 = computed(() => {
+  const page = pages[props.page]
+  return page ? { ...page, label: getLabel(page) } : { label: '', route: '/' }
+})
+const page3 = computed(() => {
+  const page = pages[props.page + 1]
+  return page ? { ...page, label: getLabel(page) } : { label: '', route: '/' }
+})
 </script> 
 
 
 <style>
-
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2% 20%;
-  width: 100%;
-}
-
-.leftArrow,
-.rightArrow {
-  width: 10em;
-  height: 5em;
-}
-
-.leftArrow a,
-.rightArrow a {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.leftArrow a {
-  background-image: url('../assets/Left_arrow_dark.png');
-}
-
-.rightArrow a {
-  background-image: url('../assets/Right_arrow_dark.png');
-}
-
-.nav_btns {
-  display: flex;
-  gap: 1.2em;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav_btns button {
-  cursor: pointer;
-  width: 135px;
-  border: none;
-  background-color: inherit;
-  font-family: 'Somar Sans', 'sans-serif';
-  font-size: 1.2em;
-  font-weight: 700;
-  color: var(--gray_2);
-  transition: color 0.3s;
-}
-
-.nav_btns button:hover {
-  color: var(--primary-light-mode);
-} */
-
 
 .navbar {
 
@@ -234,12 +195,16 @@ body.dark .rightArrow a{
 
   .nav_btns button {
     width: 100%;
-    font-size: 1em;
+    font-size: 0.7em;
   }
 
   .leftArrow,
   .rightArrow {
     display: none;
+  }
+
+  body.english .nav_btns button ,body .english.dark .nav_btns button{
+    font-size: 0.5em;
   }
 }
 
