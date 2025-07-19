@@ -119,7 +119,7 @@ const page3 = computed(() => {
   border: none;
   background-color: inherit;
   font-family: 'Somar Sans', 'sans-serif';
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 700;
   color: var(--gray_2);
   transition: color 0.3s;
@@ -182,7 +182,7 @@ body.dark .rightArrow a{
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .navbar {
     flex-direction: column;
     align-items: center;

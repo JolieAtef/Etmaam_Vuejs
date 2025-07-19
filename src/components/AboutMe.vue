@@ -9,7 +9,8 @@
             </transition>
             <transition name="slide-left" appear>
             <div class="about_left">
-               <p>{{ $t('about.left_paragraph') }}</p>
+               <p>{{ $t('about.left_paragraph_1') }}</p>
+               <p>{{ $t('about.left_paragraph_2') }}</p>
             </div>
         </transition>
         </div>
@@ -64,13 +65,13 @@ export default {
 .about_right> p{
     color:var(--gray_3);
     font-size: 0.9em;
-    
 }
 
 .about_left{
-    font-size: 0.9em;
+    font-size: 1.3em;
     direction: rtl;
     text-align: right;
+    text-align: justify;
 }
 
 body.dark .about_right> p{
@@ -93,7 +94,20 @@ body.english.dark .about_me_container{
 body.dark.english .about_right> * , body.dark.english .about_me_container>*,
 body.english .about_right> * , body.english .about_me_container>*{
    text-align: left;
+   direction: ltr;
 }
+
+body.dark.english .about_left p , body.english .about_left p{
+  font-size: 0.9em;
+  text-align: justify;
+}
+
+body.dark.english .about_left  , body.english .about_left {
+ padding-left: 0;
+}
+
+
+
 
 @media (max-width: 1500px) {
 
@@ -106,13 +120,17 @@ body.english .about_right> * , body.english .about_me_container>*{
     .about_me_container>*{
         width: 90%;
         text-align: center;
-        padding: 0% 10%;
+        padding: 0% 12%;
     }
     .about_right> *{
      text-align: center;
     }
     .about_right h4{
         margin-bottom: 3%;
+    }
+    
+    .about_right p{
+        font-size: 1em;
     }
     
     body.english .about_me_container ,
@@ -130,7 +148,29 @@ body.english .about_right> * , body.english .about_me_container>*{
     text-align: center;
    }
 
+   body.dark.english .about_left p , body.english .about_left p{
+  font-size: 0.6em;
+  text-align: justify;
+  text-align: center;
+  } 
+
 }
+
+  @media (max-width: 600px){
+    .about_right h4{
+        font-size: 1em;
+    }
+    .about_left p{
+        font-size: 0.6em;
+    }
+    
+    body.dark.english .about_left p , body.english .about_left p{
+     font-size: 0.5em;
+
+    } 
+
+  }
+
 
 
 /* Right side comes from the right */

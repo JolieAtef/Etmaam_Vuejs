@@ -1,15 +1,19 @@
 <template>
     <div class="career_item">
-          <h2>1998</h2>
-          <h4>{{ $t('career_item.title') }}</h4>
-          <p>{{ $t('career_item.paragraph') }}</p>
+          <h2>{{ props.date }}</h2>
+          <h4>{{ props.title }}</h4>
+          <p>{{ props.paragraph }}</p>
     </div>
 </template>
 
-<script>
-export default{
- name:'CareerItem'
-}
+<script setup>
+const props = defineProps({
+  index: Number,
+  date: String,
+  title: String,
+  paragraph: String
+})
+
 </script>
 
 <style>
@@ -31,7 +35,8 @@ export default{
 
 .career_item p{
     color: var(--gray_3);
-    font-size: 0.68em;
+    font-size: 0.8em;
+    text-align: justify;
 }
 
 body.dark .career_item h2{
@@ -50,17 +55,21 @@ body.dark.career_item p{
 body.english .career_item>*, body.dark.english .career_item>*{
      text-align: left;
      font-size: 0.8em;
+     text-align: justify;
 }
 
 @media (width  < 1200px){
-  .career_item{
-    text-align: center;
+  .career_item h2{
+    font-size: 0.9em;
+   }
+
+   .career_item h4{
+    font-size: 0.8em;
    }
 }
 
-@media (width  < 700px){
+@media (width  < 800px){
   .career_item{
-    text-align: center;
     padding: 0%;
     gap:0;
    }
