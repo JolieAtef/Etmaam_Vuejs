@@ -105,19 +105,19 @@ export default {
 }
 
 .social_11{
-    background-image: url(../assets/dark/socialMedia/Vector\ \(1\).png)
+    background-image: url(../assets/dark/socialMedia/Vector\ \(1\).svg)
 }
 .social_22{
-    background-image: url(../assets/dark/socialMedia/Vector\ \(2\).png)
+    background-image: url(../assets/dark/socialMedia/Vector\ \(2\).svg)
 }
 .social_33{
-    background-image: url(../assets/dark/socialMedia/Vector\ \(3\).png)
+    background-image: url(../assets/dark/socialMedia/Vector\ \(3\).svg)
 }
 .social_44{
-    background-image: url(../assets/dark/socialMedia/Vector\ \(4\).png)
+    background-image: url(../assets/dark/socialMedia/Vector\ \(4\).svg)
 }
 .social_55{
-    background-image: url(../assets/dark/socialMedia/Vector\ \(5\).png)
+    background-image: url(../assets/dark/socialMedia/Vector\ \(5\).svg)
 }
 
 .contact_below {
@@ -228,19 +228,19 @@ body.dark .contact_page{
 }
 
 body.dark .social_11{
-    background-image: url(../assets/light/socialMedia/Vector\ \(1\).png);
+    background-image: url(../assets/light/socialMedia/Vector\ \(1\).svg);
 }
 body.dark .social_22{
-    background-image: url(../assets/light/socialMedia/Vector\ \(2\).png);
+    background-image: url(../assets/light/socialMedia/Vector\ \(2\).svg);
 }
 body.dark .social_33{
-    background-image: url(../assets/light/socialMedia/Vector\ \(3\).png);
+    background-image: url(../assets/light/socialMedia/Vector\ \(3\).svg);
 }
 body.dark .social_44{
-    background-image: url(../assets/light/socialMedia/Vector\ \(4\).png);
+    background-image: url(../assets/light/socialMedia/Vector\ \(4\).svg);
 }
 body.dark .social_55{
-    background-image: url(../assets/light/socialMedia/Vector\ \(5\).png);
+    background-image: url(../assets/light/socialMedia/Vector\ \(5\).svg);
 }
 
 body.dark .contact_right h3{
@@ -322,6 +322,7 @@ body.english .arrow, body.english.dark .arrow{
    }
    .contact_page{
     max-height: none;
+    padding: 3% 0;
    }
    .contact_right{
     text-align: center;
@@ -359,7 +360,7 @@ body.english .form_group label, body.english.dark .form_group label
 
 .submit-btn {
  align-self: stretch;
- text-align: center;
+ text-align: left;
  margin-top: 1rem;
 }
 

@@ -1,7 +1,9 @@
 <template>
   <transition name="slide-down">
-  <div v-if="showHero" class="hero" >
-        <img src="../assets/hero_img.png" alt="الاستاذ ابو فيصل" loading="eager">
+  <div v-if="showHero" class="hero">
+        <div class="hero_img">
+        <img src="../assets/hero_img.svg" alt="الاستاذ ابو فيصل" loading="eager">
+        </div>
         <div class="img_content">
           <h2 class="hero_name">{{ $t('hero.name') }}</h2>
           <hr>
@@ -14,6 +16,7 @@
 </template>
 <script>
 import NavBar from './NavBar.vue';
+
 
  export default {
   name: 'HomePage',
@@ -34,15 +37,24 @@ import NavBar from './NavBar.vue';
 <style>
 
 .hero {
-  margin: auto;
   position: relative;
   width: 100%;
   max-height:  75vh;
   overflow: hidden;
 }
 
+.hero_img{
+  text-align: center;
+}
+
+.hero > *{
+  margin: auto;
+  align-content: center;
+}
+
 .hero img {
-  width: 100%;
+  text-align: center;
+  width: 85%;
   height: auto;
   max-height: 570px;
   object-fit: contain;
@@ -58,14 +70,14 @@ import NavBar from './NavBar.vue';
 }
 
 .img_content .hero_name {
-  font-size: clamp(1.8rem, 4vw, 2.65em);
-  padding-bottom: 0.8rem;
+  font-size: clamp(1.6rem, 3vw, 1.8em);
+  padding-bottom: 0.55rem;
   color: var(--primary-dark-mode);
 }
 
 .img_content .hero_title {
-  font-size:  clamp(1.2rem, 4vw, 1.1em);
-  padding-top: 0.8rem;
+  font-size:  clamp(1rem, 2vw, 1.2em);
+  padding-top: 0.5rem;
   color: var(--white);
 }
 
@@ -75,52 +87,57 @@ hr{
 }
 
 @media (max-width: 1350px){
+  /* .hero {
+    max-height: none;
+    min-height: 38vh;
+  }
+   */
+  /* .img_content {
+    top: 56%;
+  }
+
+  /* .img_content .hero_name{
+    font-size: 1.1em;
+  }
+
+  .img_content .hero_title{
+    font-size: 0.9em;
+  } */ */
 
   body.english .img_content .hero_name, body.english .dark .img_content .hero_name{
   font-size: clamp(1.2rem, 2.5vw, 1.5em);
   }
   body.english .img_content .hero_title, body.english .dark .img_content .hero_title{
-  font-size: clamp(0.9rem, 1vw, 0.9em);
+  font-size: clamp(0.75rem, 1vw, 0.9em);
 }
 
 }
 
-@media (max-width: 650px) {
-  .hero {
-    max-height: none;
-    min-height: 35vh;
-  }
-
-  .hero img {
-    max-height: none;
-    height: auto;
-  }
-  .img_content {
-  position: absolute;
-  top: 47%; 
-}
+@media (max-width: 700px) {
 
 .img_content .hero_name {
-  font-size: clamp(1.2rem, 3vw, 2.2em);
+  font-size: clamp(0.9rem, 3vw, 2.2em);
   padding-bottom: 0.3rem;
 }
 
 .img_content .hero_title {
-  font-size: clamp(0.2rem, 2vw, 1em);
+  font-size: clamp(0.15rem, 2vw, 1em);
   padding-top: 0.2rem;
 }
 
 body.english .img_content .hero_name, body.english .dark .img_content .hero_name{
-  font-size: clamp(0.7rem, 1.2vw, 0.7em);
+  font-size: clamp(0.6rem, 1.2vw, 0.8em);
 }
 
 body.english .img_content .hero_title, body.english .dark .img_content .hero_title{
-  font-size: clamp(0.6rem, 0.8vw, 0.6em);
+  font-size: clamp(0.55rem, 0.7vw, 0.3em);
+  padding: 0 6px ;
+  
 }
 
-body.english .img_content , body.english .dark .img_content {
+/* body.english .img_content , body.english .dark .img_content {
   top: 49%;
-}
+} */
 
 }
 

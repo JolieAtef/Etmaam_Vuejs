@@ -3,7 +3,7 @@
   <div class="vision_container">
     <transition name="slide-right" appear>
     <div class="vision_right">
-        <img src="../assets/vision_img.png" alt="الاستاذ ابو فيصل" loading="eager">
+        <img src="../assets/vision_img.svg" alt="الاستاذ ابو فيصل" loading="eager">
     </div>
    </transition>
    <transition name="slide-left" appear>
@@ -27,10 +27,12 @@ export default {
 
 <style>
 .my_vision_page{
-    max-height: 75vh;
+    max-height: 75vh;  
+    width: 100%; 
+    overflow: hidden;
 }
+
 .vision_container{
-   
    display: flex;
    flex-direction: row-reverse;
 }
@@ -39,56 +41,73 @@ export default {
    width: 50%;
 }
 
+.vision_right{
+  height: auto;
+}
+
 .vision_right > img {
-    width: 50vw;      
-    height: 37vw;    
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* or 'cover' depending on your design */
+  display: block;
 }
 
 .vision_left{
-    font-size: 2.02em;
+    font-size: 1.8rem;
     padding: 6%;
-    text-align: center;
-    margin-left: 13%;
+    padding-left: 20%;
+    text-align: center;  
 }
 
 body.dark .vision_left{
     color: var(--white);
 }
 
-body.english .vision_left, body.dark.english .vision_left{
-  font-size: 1.4em;
+body.english .vision_left , body.dark.english .vision_left {
+  font-size: 1.2rem;
+  direction: ltr;
+  text-align: justify;
 }
 
 
 
 @media (width  < 1200px){
+  .my_vision_page{
+    max-height: 100vh;  
+    width: 100%; 
+    overflow: hidden;
+   }
 
-    
     .vision_container{
         flex-direction: column;
+        margin: auto;
     }
     .vision_left{
-        font-size: 1.2em;
+        padding: 0;
+        font-size: 0.8rem;
         margin: auto;
-        padding-top: 2%;
+        padding: 3%  0;
     }
     .vision_right{
         margin: auto;
         align-items: center;
+        text-align: center;
     }
     body.english .my_vision_page, body.dark.english .my_vision_page{
-     min-height: 80vh;
+     max-height: 120vh;
     }
     body.english .vision_left, body.dark.english .vision_left{
-     font-size: 1.2em;
+     font-size: 0.8rem;
+     text-align: center;
     }
 
 }
 
 
 @media (width  < 700px){
-  body.english .my_vision_page, body.dark.english .my_vision_page{
-     min-height: 110vh;
+  body.english .vision_left, body.dark.english .vision_left{
+     font-size: 0.65rem;
+     text-align: center;
     }
 }
 

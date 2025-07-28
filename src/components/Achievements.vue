@@ -13,7 +13,7 @@
 </transition>
 <transition name="slide-left" appear>
   <div class="achieve_left">
-    <img alt="Achievements Image" src="../assets/Achieve_img.png" loading="eager">
+    <img alt="Achievements Image" src="../assets/Achieve_img.svg" loading="eager">
   </div>
 </transition>
 </div>
@@ -124,7 +124,7 @@ body.english .achieve_right, body.english .dark .achieve_right{
 
 @media ((max-width: 1200px)) {
        .achieve_page{
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: center;
         max-height: none;
         padding: 0 12%;
@@ -135,13 +135,14 @@ body.english .achieve_right, body.english .dark .achieve_right{
        }
        .achieve_right{
         padding: 5% 10% ;
+        margin: 6%;
        }
        .achieve_content h3{
             font-size: 1.6em;
        }
 
        body.english .achieve_page , body.english .dark .achieve_page{
-       flex-direction: column;
+       flex-direction: column-reverse;
        justify-content: center;
       }
 

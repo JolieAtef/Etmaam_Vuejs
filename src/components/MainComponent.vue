@@ -1,6 +1,12 @@
 <template>
  <LogoBar @toggle-dark-mode="isDark = $event"/>
- <RouterView/>
+ <div
+    class="swipe-wrapper"
+    @touchstart="onTouchStart"
+    @touchend="onTouchEnd"
+  >
+   <RouterView/>
+ </div>
  <SocialMedia/>
 </template>
 
@@ -18,15 +24,44 @@ export default {
   },
   data(){
     return{
-    isDark:false
+    isDark:false,
+    touchStartX: 0,
+    touchEndX: 0,
+    routeOrder: ['/', '/AboutMe', '/MyVision', '/CareerPath','/Certificates', '/Achievements','/ContactMe'],
     }
   },
   watch: {
     isDark(val) {
       val? document.body.classList.add('dark'):document.body.classList.remove('dark');
     }
-  },
+  },methods: {
+    onTouchStart(e) {
+      this.startX = e.touches[0].clientX;
+    },
+    onTouchEnd(e) {
+      this.endX = e.changedTouches[0].clientX;
+      this.handleSwipe();
+    },
+    handleSwipe() {
+      const delta = this.endX - this.startX;
+      const threshold = 40;
+      if (Math.abs(delta) < threshold) {
+        return;
+      }
+      const currentIndex = this.routeOrder.indexOf(this.$route.path);
+      console.log('Current route:', this.$route.path, 'Index:', currentIndex);
+
+      if (delta < 0 && currentIndex < this.routeOrder.length - 1) {
+        console.log('Swiping left →', this.routeOrder[currentIndex + 1]);
+        this.$router.push(this.routeOrder[currentIndex + 1]);
+      } else if (delta > 0 && currentIndex > 0) {
+        console.log('Swiping right →', this.routeOrder[currentIndex - 1]);
+        this.$router.push(this.routeOrder[currentIndex - 1]);
+      }
+    }
+  }
 }
+
 </script>
 
 <style>
@@ -83,5 +118,5 @@ a{
     margin: auto;
     
  }
-
+ 
 </style>

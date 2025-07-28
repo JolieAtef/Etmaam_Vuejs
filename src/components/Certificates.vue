@@ -1,7 +1,7 @@
 <template>
 <transition name="slide-down" appear>
 <div class="cer_hero">
-  <img src="../assets/certificate_img.png" alt="الاستاذ ابو فيصل" loading="eager">
+  <img src="../assets/certificate_img.svg" alt="الاستاذ ابو فيصل" loading="eager">
   <div class="cer_img_content">
     <div class="cer_icon">
       <img src="../assets/certificate_icon.png" alt="certificate icon" loading="eager">
@@ -132,6 +132,7 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
   .cer_img_content p{
     font-size:  clamp(0.4rem, 0.6vw, 0.4em);
     margin-bottom: 0px;
+    padding: 0 min(12vw,20%);
   }
 
   .cer_icon img{
@@ -141,6 +142,11 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
 .cer_arrows img {
   width: 10px; 
 } 
+
+body.english .cer_img_content p ,body.english .dark .cer_img_content p {
+  padding: 0 min(10vw,60%);
+
+ }
 }
 
 /* Transition classes for slide-down effect */

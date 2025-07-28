@@ -17,7 +17,7 @@
       :paragraph="item.paragraph"/>
       </div>
     </transition>
-    </div>
+</div>
 
       <NavBar :page="3"/>
 </template>
@@ -49,8 +49,9 @@ export default {
 </script>
 
 <style>
+
 .Career_path_page{
-    max-height: 75vh;
+    height: 75vh;
     max-width: 70%;
     margin: auto;
 }
@@ -68,15 +69,15 @@ export default {
 
     
 .career_title h3{
-     font-size: 1em;
-     direction: rtl;
+    font-size: 1em;
+    direction: rtl;
 }
 .career_items{
     padding-left: 7%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 5%;
-    padding-bottom: 15%;
+    padding-bottom: 10%;
     direction: rtl;
 }
 
@@ -104,34 +105,36 @@ body.english .career_title h3, body.dark.english .career_title h3{
 @media (width  < 1250px){
 
   .Career_path_page{
-    min-height: 45vh;
+    height: auto ;
    }
+
   .career_title{
     text-align: center;
     margin-bottom: 5%;
    }
+
    .career_items{ 
-    gap: 7%;
+    gap: 5%;
     grid-template-columns: repeat(2,1fr);
-    margin-bottom: 5%;
+    padding-bottom: 5%;
    }
-   body.english .Career_path_page, body.dark.english .Career_path_page{
-    min-height: 100vh;
-  }
+   /* body.english .Career_path_page, body.dark.english .Career_path_page{
+    max-height: 170vh;
+  } */
 }
 
 @media (width  < 750px){
+  .Career_path_page{
+      padding-bottom:min(20vh , 60%);
+    }
+
    .career_items{ 
     grid-template-columns: repeat(1,1fr);
-    flex:1;
 }
 
-.Career_path_page{
-    min-height: 155vh;
-   }
 
-   body.english .Career_path_page, body.dark.english .Career_path_page{
-    min-height: 150vh;
+  body.english .Career_path_page, body.dark.english .Career_path_page{
+    max-height: 160vh;
   }
 }
 

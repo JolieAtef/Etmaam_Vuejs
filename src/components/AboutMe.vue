@@ -29,39 +29,35 @@ export default {
 </script>
 
 <style>
-.about_me_page{ 
-    min-height: 75vh;
+.about_me_page{
+    max-height: 75vh;
 }
 
 .about_me_container{
-
     display: flex;
     flex-direction: row-reverse;
     max-width: 70%;
-   
     margin: auto;
     padding: 4% 0;
-   
 }
 
 .about_me_container >*{
      text-align: right;
      width: 50%;
-     padding-left: 6%;
-     
+     padding-left: min(5rem ,8%);
+     margin: 0 0 5rem;   
 }
 .about_right> *{
      text-align: right;
 }
 
-
 .about_right> h4{
     padding-top:5% ;
     color:var(--primary-light-mode);
-    font-size: 1.6em;
+    font-size: 1.2rem;
     font-weight: 600;
-    
 }
+
 .about_right> p{
     color:var(--gray_3);
     font-size: 0.9em;
@@ -111,27 +107,29 @@ body.dark.english .about_left  , body.english .about_left {
 
 @media (max-width: 1500px) {
 
-    .about_me_page{
-    max-height: none;
-    }
     .about_me_container{
         flex-direction: column;
+        padding: 0% 1%;
     }
-    .about_me_container>*{
+    .about_me_container>* {
         width: 90%;
         text-align: center;
-        padding: 0% 12%;
+        margin: 0;
     }
     .about_right> *{
      text-align: center;
-    }
-    .about_right h4{
-        margin-bottom: 3%;
+     padding: 0;
     }
     
     .about_right p{
-        font-size: 1em;
+      font-size: 0.9rem;
     }
+    
+    .about_left{
+        padding: 2% 0%;
+        margin: auto;
+    }
+
     
     body.english .about_me_container ,
     body.english.dark .about_me_container{
@@ -149,7 +147,7 @@ body.dark.english .about_left  , body.english .about_left {
    }
 
    body.dark.english .about_left p , body.english .about_left p{
-  font-size: 0.6em;
+  font-size: 0.7rem;
   text-align: justify;
   text-align: center;
   } 
@@ -157,15 +155,17 @@ body.dark.english .about_left  , body.english .about_left {
 }
 
   @media (max-width: 600px){
+
     .about_right h4{
-        font-size: 1em;
+        font-size: 0.9rem;
+        
     }
     .about_left p{
-        font-size: 0.6em;
+        font-size: 0.5rem;
     }
     
     body.dark.english .about_left p , body.english .about_left p{
-     font-size: 0.5em;
+     font-size: 0.5rem;
 
     } 
 
