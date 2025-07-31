@@ -84,7 +84,6 @@ body.dark .social_5{
 
 @media (width  < 1300px){
     .social_bar{
-        /* position: static; */
         width:40px ;
         height: 168px;
         left: 5%;

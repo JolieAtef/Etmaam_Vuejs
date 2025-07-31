@@ -118,9 +118,7 @@ body.english .career_title h3, body.dark.english .career_title h3{
     grid-template-columns: repeat(2,1fr);
     padding-bottom: 5%;
    }
-   /* body.english .Career_path_page, body.dark.english .Career_path_page{
-    max-height: 170vh;
-  } */
+  
 }
 
 @media (width  < 750px){

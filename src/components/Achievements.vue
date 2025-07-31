@@ -149,8 +149,8 @@ body.english .achieve_right, body.english .dark .achieve_right{
       body.english .achieve_right, body.english .dark .achieve_right{
         text-align: center;
         padding: 5% 10% ;
+        margin-left: -2%;
       }
-
 
 }
   

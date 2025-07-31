@@ -27,12 +27,14 @@
 <script setup>
 
 // import { computed } from 'vue'
+import { ref} from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { ref } from 'vue'
+
 
 
 const { locale } = useI18n()
+
 
 const props = defineProps({
   page: Number
@@ -55,6 +57,7 @@ const pages = [
 
 const navWrapper = ref(null)
 
+
 function scrollLeft() {
   navWrapper.value.scrollBy({ left: -150, behavior: 'smooth' })
 }
@@ -62,6 +65,12 @@ function scrollLeft() {
 function scrollRight() {
   navWrapper.value.scrollBy({ left: 150, behavior: 'smooth' })
 }
+
+// function saveScrollPosition() {
+//   if (navWrapper.value) {
+//     savedScrollLeft.value = navWrapper.value.scrollLeft
+//   }
+// }
 
 // const page1 = computed(() => {
 //   const page = pages[props.page - 1]
@@ -75,6 +84,18 @@ function scrollRight() {
 //   const page = pages[props.page + 1]
 //   return page ? { ...page, label: getLabel(page) } : { label: '', route: '/' }
 // })
+
+
+
+// Run on initial mount and on route change
+// onMounted(() => {
+//   nextTick(() => {
+//     if (navWrapper.value) {
+//       navWrapper.value.scrollLeft = savedScrollLeft.value
+//     }
+//   })
+// })
+
 </script> 
 
 

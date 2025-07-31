@@ -102,7 +102,7 @@ hr{
 
   .img_content .hero_title{
     font-size: 0.9em;
-  } */ */
+  } */ 
 
   body.english .img_content .hero_name, body.english .dark .img_content .hero_name{
   font-size: clamp(1.2rem, 2.5vw, 1.5em);
