@@ -18,7 +18,7 @@ export default {
 <style>
 .social_bar{
     width: 48px;
-    height: 208px;
+    height: 200px;
     background-color:var(--primary-light-mode);
     position: absolute;
     top: 35%; 
@@ -31,7 +31,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
-    gap: 6px;
+    gap: 4px;
     
 }
 
@@ -41,6 +41,7 @@ export default {
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 15px 16px;
     margin: auto;
     border: none;
 }
@@ -98,6 +99,7 @@ body.dark .social_5{
     .buttons-container > *{
      width: 28px;
      height: 28px;
+     background-size: 13px 14px;
     }
 }
 
@@ -116,6 +118,7 @@ body.dark .social_5{
     .buttons-container > *{
      width: 16px;
      height: 16px;
+     background-size: 12px 13px;
     }
 }
 </style>
