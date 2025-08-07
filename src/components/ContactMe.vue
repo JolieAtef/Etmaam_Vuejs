@@ -366,7 +366,7 @@ body.english .form_group label, body.english.dark .form_group label
 
 body.english .contact_below, body.english.dark .contact_below{
  
-  padding: 2% 14% ;
+  padding: 2% 19% ;
   
 }
 }

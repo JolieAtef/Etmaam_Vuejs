@@ -165,6 +165,7 @@ body.dark.english .about_left  , body.english .about_left {
     }
     .about_left p{
         font-size: 0.9rem;
+        padding: 0 5%;
     }
     
     body.dark.english .about_left p , body.english .about_left p{

@@ -1,13 +1,15 @@
 <template>
- <LogoBar @toggle-dark-mode="isDark = $event"/>
- <div
-    class="swipe-wrapper"
-    @touchstart="onTouchStart"
-    @touchend="onTouchEnd"
+  <LogoBar @toggle-dark-mode="isDark = $event"/>
+  <Swiper
+  @slideChange="onSlideChange"
+  :allowTouchMove="true"
+  class="mySwiper"
   >
-   <RouterView/>
- </div>
- <SocialMedia/>
+  <SwiperSlide v-for="(index) in routes" :key="index" class="slide">
+    <RouterView/>
+    <SocialMedia class="social"/>
+  </SwiperSlide>
+ </Swiper>
  <NavBar/>
 </template>
 
@@ -17,53 +19,41 @@
 import LogoBar from './LogoBar.vue';
 import SocialMedia from './SocialMedia.vue';
 import NavBar from './NavBar.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/swiper-bundle.css'
+
 
 export default {
   name: 'MainComponent',
   components:{
    LogoBar,
    SocialMedia,
-   NavBar
+   NavBar,
+   Swiper,
+   SwiperSlide
   },
   data(){
     return{
     isDark:false,
-    touchStartX: 0,
-    touchEndX: 0,
-    routeOrder: ['/', '/AboutMe', '/MyVision', '/CareerPath','/Certificates', '/Achievements','/ContactMe'],
+    currentIndex: 0,
+    routes: ['/', '/AboutMe', '/MyVision', '/CareerPath','/Certificates', '/Achievements','/ContactMe']
     }
-  },
-  watch: {
+    },
+    watch: {
     isDark(val) {
       val? document.body.classList.add('dark'):document.body.classList.remove('dark');
-    }
-  },methods: {
-    onTouchStart(e) {
-      this.startX = e.touches[0].clientX;
-    },
-    onTouchEnd(e) {
-      this.endX = e.changedTouches[0].clientX;
-      this.handleSwipe();
-    },
-    handleSwipe() {
-      const delta = this.endX - this.startX;
-      const threshold = 40;
-      if (Math.abs(delta) < threshold) {
-        return;
-      }
-      const currentIndex = this.routeOrder.indexOf(this.$route.path);
-      console.log('Current route:', this.$route.path, 'Index:', currentIndex);
-
-      if (delta < 0 && currentIndex < this.routeOrder.length - 1) {
-        console.log('Swiping left →', this.routeOrder[currentIndex + 1]);
-        this.$router.push(this.routeOrder[currentIndex + 1]);
-      } else if (delta > 0 && currentIndex > 0) {
-        console.log('Swiping right →', this.routeOrder[currentIndex - 1]);
-        this.$router.push(this.routeOrder[currentIndex - 1]);
+    }},
+    methods: {
+    onSlideChange(swiper) {
+      const index = swiper.activeIndex
+      this.currentIndex = index
+      const route = this.routes[index]
+      if (this.$route.path !== route) {
+        this.$router.push(route)
       }
     }
   }
-}
+} 
 
 </script>
 
@@ -120,5 +110,12 @@ a{
     max-height:810px;
     margin: auto;
  }
- 
+
+ .social{
+   position: absolute;
+   top: 30%;
+   left: 13%;
+   z-index: 10;
+ }
+
 </style>

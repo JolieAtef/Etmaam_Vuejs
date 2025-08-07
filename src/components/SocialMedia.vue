@@ -20,9 +20,6 @@ export default {
     width: 48px;
     height: 200px;
     background-color:var(--primary-light-mode);
-    position: absolute;
-    top: 35%; 
-    left: 15%; 
 }
 
 
@@ -87,8 +84,6 @@ body.dark .social_5{
     .social_bar{
         width:40px ;
         height: 168px;
-        left: 5%;
-        top:23%        
     }
 
     .buttons-container{
@@ -103,16 +98,17 @@ body.dark .social_5{
     }
 }
 
-@media (width  < 600px){
+@media (width  < 700px){
     .social_bar{
         width: 30px;
         height: 125px;
-        top:16%  
+        left: 12% !important;
+        top:25% !important;
     }
 
     .buttons-container{
-    padding: 8px 0;
-    gap:7px; 
+     padding: 8px 0;
+     gap:7px; 
     } 
 
     .buttons-container > *{

@@ -143,11 +143,13 @@ body.english .achieve_right, body.english .dark .achieve_right{
         padding: 0;
        }
        .achieve_left> img{
+        height:300px;
         object-fit: cover;
+        
        }
        .achieve_right{
         align-items: center;
-        padding: 2% 7% 2% 12% ;
+        padding: 2% 2% 2% 12% ;
        }
        .achieve_content h6{
             font-size: 1em;
@@ -169,15 +171,18 @@ body.english .achieve_right, body.english .dark .achieve_right{
       body.english .achieve_right, body.english .dark .achieve_right{
         text-align: center;
         padding: 5% 10% ;
-        margin-left: -2%;
       }
 
       body.english .achieve_right h6, body.english .dark .achieve_right h6{
-           font-size:0.7em ;
+           font-size:0.6em ;
+           padding-top: 2%;
       }
 
       body.english .achieve_right h3, body.english .dark .achieve_right h3{
-           font-size:0.9em ;
+           font-size:0.8em ;
+      }
+      body.english .achieve_right p, body.english .dark .achieve_right p{
+           font-size:0.7em ;
       }
 
 }

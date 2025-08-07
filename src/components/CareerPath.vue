@@ -19,12 +19,10 @@
     </transition>
 </div>
 
-      <!-- <NavBar :page="3"/> -->
 </template>
 
 <script>
 import CarrerItem from './CarrerItem.vue';
-// import NavBar from './NavBar.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue'
 
@@ -123,11 +121,12 @@ body.english .career_title h3, body.dark.english .career_title h3{
 
 @media (width  < 750px){
   .Career_path_page{
-      padding-bottom:min(20vh , 60%);
+      padding-bottom:min(25vh , 60%);
     }
 
    .career_items{ 
     grid-template-columns: repeat(1,1fr);
+    padding: 0 12%;
 }
 
 

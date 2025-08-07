@@ -14,15 +14,10 @@
   </div>
 </div>
 </transition>
-<!-- <NavBar :page="4"/> -->
 </template>
 <script>
-// import NavBar from './NavBar.vue';
 export default {
   name: 'CertificatesPage',
-  // components:{
-  //   NavBar
-  // }
 }
 </script>
 
@@ -108,8 +103,8 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
   }
 
  body.english .cer_img_content ,body.english .dark .cer_img_content {
-  top:38%;
-  padding: 0 18%;
+  top:42%;
+  padding: 0 13%;
  }
  body.english .cer_img_content h4 ,body.english .dark .cer_img_content h4 {
   padding-bottom:0rem;
@@ -123,9 +118,8 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
 
 @media (width  < 700px){
   .cer_img_content {
-    top: 42%;
+    top: 44%;
     padding: 0 2%;
-    /* background-color: blue; */
   }
   .cer_img_content h4{
     font-size: clamp(0.6rem, 1vw, 0.8em);
@@ -143,6 +137,9 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
 .cer_arrows img {
   width: 10px; 
 } 
+body.english .cer_img_content ,body.english .dark .cer_img_content {
+  top:44%;
+ }
 
 body.english .cer_img_content p ,body.english .dark .cer_img_content p {
   padding: 0 min(10vw,60%);

@@ -74,7 +74,6 @@ onMounted(() => {
 })
 
 watch(() => route.path, (newPath) => {
-  console.log(newPath)
   updateActiveIndex(newPath)
   scrollToCenter()
 })

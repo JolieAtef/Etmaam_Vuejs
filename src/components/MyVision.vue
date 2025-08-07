@@ -106,7 +106,7 @@ body.english .vision_left , body.dark.english .vision_left {
 @media (width  < 700px){
  
   .vision_right > img {
-    height: 300px;
+    height: 250px;
   }
   body.english .vision_left, body.dark.english .vision_left{
      font-size: 0.8rem;

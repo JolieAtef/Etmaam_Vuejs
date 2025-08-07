@@ -15,14 +15,11 @@
 
 </template>
 <script>
-// import NavBar from './NavBar.vue';
+
 
 
  export default {
   name: 'HomePage',
-  // components:{
-  //   NavBar
-  // },
   data(){
     return{
       showHero: false
@@ -37,7 +34,6 @@
 <style>
 
 .hero {
-  position: relative;
   width: 100%;
   height: 570px;
   overflow: hidden;
@@ -122,7 +118,7 @@ hr{
 }
 
 .img_content .hero_title {
-  font-size: clamp(0.15rem, 2vw, 1em);
+  font-size: clamp(0.25rem, 2vw, 1em);
   padding-top: 0.2rem;
 }
 
@@ -135,9 +131,6 @@ body.english .img_content .hero_title, body.english .dark .img_content .hero_tit
   padding: 0 3rem ;
 }
 
-/* body.english .img_content , body.english .dark .img_content {
-  top: 49%;
-} */
 
 }
 
