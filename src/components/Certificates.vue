@@ -14,15 +14,15 @@
   </div>
 </div>
 </transition>
-<NavBar :page="4"/>
+<!-- <NavBar :page="4"/> -->
 </template>
 <script>
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 export default {
   name: 'CertificatesPage',
-  components:{
-    NavBar
-  }
+  // components:{
+  //   NavBar
+  // }
 }
 </script>
 
@@ -31,17 +31,18 @@ export default {
 .cer_hero{
     margin: auto;
     position: relative;
-    max-height: 75vh;
+    height: 570px;
     width: 100%;
     overflow: hidden;
+    text-align: center;
 }
 
 
 .cer_hero img {
-  width: 100%;
-  height: auto;
-  max-height: 570px;
-  object-fit: contain;
+  width: 71%;
+  /* height: auto; */
+  height: 570px;
+  object-fit: cover;
 }
 
 .cer_img_content {
@@ -64,7 +65,6 @@ export default {
 }
 
 .cer_img_content h4 {
-
   font-size: clamp(1rem, 2vw, 1.2em);
   padding-bottom: 0.6rem;
   color:var(--white);
@@ -74,7 +74,6 @@ export default {
   font-size:  clamp(0.7rem, 1vw, 0.7em);
   margin-bottom: 2rem;
   color:var(--white);
-
 }
 
 body.english .cer_img_content ,body.english .dark .cer_img_content {
@@ -89,7 +88,8 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
 @media (width  < 1300px){
   
   .cer_img_content {
-    padding: 8%;
+    padding: 8% 22%;
+    /* background-color: aqua; */
   }
 
   .cer_img_content h4{
@@ -109,7 +109,7 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
 
  body.english .cer_img_content ,body.english .dark .cer_img_content {
   top:38%;
-  padding: 0 12%;
+  padding: 0 18%;
  }
  body.english .cer_img_content h4 ,body.english .dark .cer_img_content h4 {
   padding-bottom:0rem;
@@ -125,6 +125,7 @@ body.english .cer_img_content p ,body.english .dark .cer_img_content p {
   .cer_img_content {
     top: 42%;
     padding: 0 2%;
+    /* background-color: blue; */
   }
   .cer_img_content h4{
     font-size: clamp(0.6rem, 1vw, 0.8em);

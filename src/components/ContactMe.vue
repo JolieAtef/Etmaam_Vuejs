@@ -60,21 +60,21 @@
   </transition>
   </div>
 </div>
-<NavBar :page="6"/>
+<!-- <NavBar :page="6"/> -->
 </template>
 <script>
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 export default {
   name: 'ContactMe',
-  components:{
-    NavBar
-  }
+  // components:{
+  //   NavBar
+  // }
 }
 </script>
 
 <style>
 .contact_page{
-  min-height: 75vh;
+  min-height: 570px;
   padding-top: 3% ;
   margin: 0% 4%;
   background-color: var(--light-primary);

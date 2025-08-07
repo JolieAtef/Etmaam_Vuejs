@@ -11,18 +11,18 @@
         </div>
   </div>
  </transition>
-  <NavBar :page="0"/>
+  <!-- <NavBar :page="0"/> -->
 
 </template>
 <script>
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 
 
  export default {
   name: 'HomePage',
-  components:{
-    NavBar
-  },
+  // components:{
+  //   NavBar
+  // },
   data(){
     return{
       showHero: false
@@ -39,7 +39,7 @@ import NavBar from './NavBar.vue';
 .hero {
   position: relative;
   width: 100%;
-  max-height:  75vh;
+  height: 570px;
   overflow: hidden;
 }
 
@@ -54,10 +54,11 @@ import NavBar from './NavBar.vue';
 
 .hero img {
   text-align: center;
-  width: 85%;
-  height: auto;
-  max-height: 570px;
-  object-fit: contain;
+  width: 71%;
+  /* height: auto; */
+  min-height: 570px;
+  /* object-fit: contain; */
+  object-fit: cover;
 }
 
 .img_content {
@@ -113,7 +114,7 @@ hr{
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
 .img_content .hero_name {
   font-size: clamp(0.9rem, 3vw, 2.2em);
@@ -131,8 +132,7 @@ body.english .img_content .hero_name, body.english .dark .img_content .hero_name
 
 body.english .img_content .hero_title, body.english .dark .img_content .hero_title{
   font-size: clamp(0.55rem, 0.7vw, 0.3em);
-  padding: 0 6px ;
-  
+  padding: 0 3rem ;
 }
 
 /* body.english .img_content , body.english .dark .img_content {

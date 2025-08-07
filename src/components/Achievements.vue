@@ -17,30 +17,31 @@
   </div>
 </transition>
 </div>
-<NavBar :page="5"/>
+<!-- <NavBar :page="5"/> -->
 </template>
 <script>
 
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 export default {
   name: 'AchievementsPage',
-  components:{
-    NavBar
-  }
+  // components:{
+  //   NavBar
+  // }
 }
 </script>
 
 <style>
 
 .achieve_page{
-  max-height: 75vh;
+  height: 570px;
+  width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction:row-reverse;
 }
  
 .achieve_page>*{
   width: 50%;
-  
 }
 .achieve_arrows{
     width: 10%;
@@ -82,8 +83,9 @@ padding-left: 5%;
 }
 
 .achieve_left> img{
-  width: 43vw;      
-  height: 37vw;  
+  width: 100%;      
+  height: 570px; 
+  object-fit: cover; 
 }
 
 
@@ -126,19 +128,37 @@ body.english .achieve_right, body.english .dark .achieve_right{
        .achieve_page{
         flex-direction: column-reverse;
         justify-content: center;
+        align-items: center;
         max-height: none;
-        padding: 0 12%;
+        padding: 0 10%;
        }
        .achieve_page >*{
         text-align: center;
         width: 100%;
+        height: 50%;
+       }
+       .achieve_left{
+        overflow: hidden;
+        text-align: center;
+        padding: 0;
+       }
+       .achieve_left> img{
+        object-fit: cover;
        }
        .achieve_right{
-        padding: 5% 10% ;
-        margin: 6%;
+        align-items: center;
+        padding: 2% 7% 2% 12% ;
        }
+       .achieve_content h6{
+            font-size: 1em;
+       }
+
        .achieve_content h3{
-            font-size: 1.6em;
+            font-size: 1.1em;
+       }
+       
+       .achieve_content p{
+            font-size: 0.8em;
        }
 
        body.english .achieve_page , body.english .dark .achieve_page{
@@ -150,6 +170,14 @@ body.english .achieve_right, body.english .dark .achieve_right{
         text-align: center;
         padding: 5% 10% ;
         margin-left: -2%;
+      }
+
+      body.english .achieve_right h6, body.english .dark .achieve_right h6{
+           font-size:0.7em ;
+      }
+
+      body.english .achieve_right h3, body.english .dark .achieve_right h3{
+           font-size:0.9em ;
       }
 
 }

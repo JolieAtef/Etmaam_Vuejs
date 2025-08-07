@@ -73,6 +73,9 @@ body.english .career_item>*, body.dark.english .career_item>*{
     padding: 0%;
     gap:0;
    }
+   body.english .career_item p{
+    font-size: 0.6em;
+   }
 }
 
 </style>

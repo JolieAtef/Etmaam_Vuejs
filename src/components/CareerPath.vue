@@ -19,20 +19,19 @@
     </transition>
 </div>
 
-      <NavBar :page="3"/>
+      <!-- <NavBar :page="3"/> -->
 </template>
 
 <script>
 import CarrerItem from './CarrerItem.vue';
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue'
 
 export default {
   name: 'CareerPath',
   components:{
-    CarrerItem,
-    NavBar
+    CarrerItem
   },
   setup() {
   const { locale, messages } = useI18n()
@@ -52,6 +51,7 @@ export default {
 
 .Career_path_page{
     height: 75vh;
+    min-height: 570px;
     max-width: 70%;
     margin: auto;
 }

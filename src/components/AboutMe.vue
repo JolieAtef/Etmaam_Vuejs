@@ -15,22 +15,25 @@
         </transition>
         </div>
   </div>
-  <NavBar :page="1"/>
+  <!-- <NavBar :page="1"/> -->
 </template>
 
 <script>
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 export default {
   name: 'AboutMe',
-  components:{
-    NavBar
-  }
+  // components:{
+  //   NavBar
+  // }
 }
 </script>
 
 <style>
 .about_me_page{
     max-height: 75vh;
+    min-height: 570px;
+    display: flex;
+    align-items: center;
 }
 
 .about_me_container{
@@ -52,7 +55,7 @@ export default {
 }
 
 .about_right> h4{
-    padding-top:5% ;
+    padding-top: 2% ;
     color:var(--primary-light-mode);
     font-size: 1.2rem;
     font-weight: 600;
@@ -122,7 +125,7 @@ body.dark.english .about_left  , body.english .about_left {
     }
     
     .about_right p{
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     
     .about_left{
@@ -157,15 +160,15 @@ body.dark.english .about_left  , body.english .about_left {
   @media (max-width: 600px){
 
     .about_right h4{
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         
     }
     .about_left p{
-        font-size: 0.5rem;
+        font-size: 0.9rem;
     }
     
     body.dark.english .about_left p , body.english .about_left p{
-     font-size: 0.5rem;
+     font-size: 0.6rem;
 
     } 
 

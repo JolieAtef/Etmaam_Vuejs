@@ -8,6 +8,7 @@
    <RouterView/>
  </div>
  <SocialMedia/>
+ <NavBar/>
 </template>
 
 <script>
@@ -15,12 +16,14 @@
 
 import LogoBar from './LogoBar.vue';
 import SocialMedia from './SocialMedia.vue';
+import NavBar from './NavBar.vue';
 
 export default {
   name: 'MainComponent',
   components:{
    LogoBar,
-   SocialMedia
+   SocialMedia,
+   NavBar
   },
   data(){
     return{
@@ -116,7 +119,6 @@ a{
     max-width: 1440px;
     max-height:810px;
     margin: auto;
-    
  }
  
 </style>

@@ -13,21 +13,21 @@
     </transition>
   </div>
 </div>
-<NavBar :page="2"/>
+<!-- <NavBar :page="2"/> -->
 </template>
 <script>
-import NavBar from './NavBar.vue';
+// import NavBar from './NavBar.vue';
 export default {
   name: 'MyVision',
-  components:{
-    NavBar
-  }
+  // components:{
+  //   NavBar
+  // }
 }
 </script>
 
 <style>
 .my_vision_page{
-    max-height: 75vh;  
+    height:570px ; 
     width: 100%; 
     overflow: hidden;
 }
@@ -47,8 +47,7 @@ export default {
 
 .vision_right > img {
   width: 100%;
-  height: auto;
-  object-fit: cover; /* or 'cover' depending on your design */
+  object-fit: cover; 
   display: block;
 }
 
@@ -84,7 +83,7 @@ body.english .vision_left , body.dark.english .vision_left {
     }
     .vision_left{
         padding: 0;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
         margin: auto;
         padding: 3%  0;
     }
@@ -97,7 +96,7 @@ body.english .vision_left , body.dark.english .vision_left {
      max-height: 120vh;
     }
     body.english .vision_left, body.dark.english .vision_left{
-     font-size: 0.8rem;
+     font-size: 0.9rem;
      text-align: center;
     }
 
@@ -105,8 +104,12 @@ body.english .vision_left , body.dark.english .vision_left {
 
 
 @media (width  < 700px){
+ 
+  .vision_right > img {
+    height: 300px;
+  }
   body.english .vision_left, body.dark.english .vision_left{
-     font-size: 0.65rem;
+     font-size: 0.8rem;
      text-align: center;
     }
 }

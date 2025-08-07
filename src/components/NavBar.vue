@@ -10,11 +10,13 @@
              v-for="(page, index) in pages"
              :key="index"
              :to="page.route"
+              @click="setActive(index)"
+              ref="navItems"
              >
-            <button :class="{ active: index === props.page }">
+            <button :class="{ active: activeIndex === index  }">
             {{ getLabel(page) }}
           </button>
-        </RouterLink>
+          </RouterLink>
           </div>
           </div>
           <div class="rightArrow" @click="scrollRight">
@@ -26,19 +28,15 @@
 
 <script setup>
 
-// import { computed } from 'vue'
-import { ref} from 'vue'
-import { RouterLink } from 'vue-router'
+
+import { ref , onMounted , watch , nextTick} from 'vue'
+import { RouterLink , useRoute} from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 
-
+const route = useRoute()
 const { locale } = useI18n()
 
-
-const props = defineProps({
-  page: Number
-})
 
 function getLabel(page) {
   return locale.value === 'en' ? page.labelEn : page.labelAr
@@ -46,7 +44,7 @@ function getLabel(page) {
 
 // List of pages
 const pages = [
-{ labelAr: 'الرئيسية', labelEn: 'Home', route: '/' },
+  { labelAr: 'الرئيسية', labelEn: 'Home', route: '/' },
   { labelAr: 'نبذة عني', labelEn: 'About Me', route: '/AboutMe' },
   { labelAr: 'رؤيتي', labelEn: 'My Vision', route: '/MyVision' },
   { labelAr: 'حياتى المهنية', labelEn: 'Career Path', route: '/CareerPath' },
@@ -56,7 +54,8 @@ const pages = [
 ]
 
 const navWrapper = ref(null)
-
+const navItems = ref([])
+const activeIndex = ref(0)
 
 function scrollLeft() {
   navWrapper.value.scrollBy({ left: -150, behavior: 'smooth' })
@@ -66,11 +65,44 @@ function scrollRight() {
   navWrapper.value.scrollBy({ left: 150, behavior: 'smooth' })
 }
 
-// function saveScrollPosition() {
-//   if (navWrapper.value) {
-//     savedScrollLeft.value = navWrapper.value.scrollLeft
-//   }
-// }
+function setActive(index) {
+  activeIndex.value = index
+}
+
+onMounted(() => {
+  scrollToCenter()
+})
+
+watch(() => route.path, (newPath) => {
+  console.log(newPath)
+  updateActiveIndex(newPath)
+  scrollToCenter()
+})
+
+watch(locale, () => {
+  scrollToCenter()
+})
+
+function updateActiveIndex(path) {
+  const currentIndex = pages.findIndex(p => p.route === path)
+  if (currentIndex !== -1) {
+    activeIndex.value = currentIndex
+  }
+}
+
+const scrollToCenter = () => {
+  nextTick(() => {
+    const wrapper = navWrapper.value
+    const activeBtn = wrapper?.querySelector('.active')
+    if (wrapper && activeBtn) {
+      const wrapperRect = wrapper.getBoundingClientRect()
+      const btnRect = activeBtn.getBoundingClientRect()
+      const offset = btnRect.left - wrapperRect.left - (wrapper.clientWidth / 2) + (btnRect.width / 2)
+      wrapper.scrollBy({ left: offset, behavior: 'smooth' })
+    }
+  })
+}
+
 
 // const page1 = computed(() => {
 //   const page = pages[props.page - 1]
@@ -83,17 +115,6 @@ function scrollRight() {
 // const page3 = computed(() => {
 //   const page = pages[props.page + 1]
 //   return page ? { ...page, label: getLabel(page) } : { label: '', route: '/' }
-// })
-
-
-
-// Run on initial mount and on route change
-// onMounted(() => {
-//   nextTick(() => {
-//     if (navWrapper.value) {
-//       navWrapper.value.scrollLeft = savedScrollLeft.value
-//     }
-//   })
 // })
 
 </script> 
@@ -111,7 +132,7 @@ function scrollRight() {
   overflow: hidden;
 }
 
-/* Arrows */
+
 .leftArrow,
 .rightArrow {
   width: 144px;
@@ -129,7 +150,7 @@ function scrollRight() {
   transition: background-size 0.3s ease;
 }
 
-/* Arrow backgrounds */
+
 .leftArrow a {
   background-image: url('../assets/Left_arrow_dark.png');
 }
@@ -143,12 +164,14 @@ function scrollRight() {
   background-size: 110%;
 }
 
-/* Navigation buttons container */
+
 .nav_btns_wrapper {
   overflow-x: auto;
   scroll-behavior: smooth;
   flex: 1;
   max-width: 30vw;
+  padding: 0 10%;
+  
 }
 
 .nav_btns_wrapper::-webkit-scrollbar {
@@ -173,7 +196,8 @@ function scrollRight() {
   cursor: pointer;
 }
 
-/* Button styling */
+
+
 .nav_btns button {
   position: relative;
   cursor: pointer;
@@ -200,7 +224,7 @@ function scrollRight() {
   height: 3px;
   width: 76%;
   border-radius: 5px;
-  background-color: var(--primary-light-mode); /* or any color */
+  background-color: var(--primary-light-mode);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
